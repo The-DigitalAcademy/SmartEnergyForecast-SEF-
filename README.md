@@ -27,8 +27,7 @@ Tableau
 
 Still in progress
 
-
-##Contributors
+## Contributors
 
 Anna Mofokeng
 

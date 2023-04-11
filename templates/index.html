@@ -1,134 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Regression Prediction</title>
+    <title>Regression Prediction</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<h1>Regression Prediction</h1>
-	<form method="POST" action="{{ url_for('predict') }}">
-		<label for="date_time_hour_beginning">Date Time Hour Beginning:</label>
-		<input type="text" id="date_time_hour_beginning" name="date_time_hour_beginning"><br><br>
-		
-		<label for="residual_forecast">Residual Forecast:</label>
-		<input type="text" id="residual_forecast" name="residual_forecast"><br><br>
-		
-		<label for="rsa_contracted_forecast">RSA Contracted Forecast:</label>
-		<input type="text" id="rsa_contracted_forecast" name="rsa_contracted_forecast"><br><br>
-		
-		<label for="dispatchable_generation">Dispatchable Generation:</label>
-		<input type="text" id="dispatchable_generation" name="dispatchable_generation"><br><br>
-		
-		<label for="residual_demand">Residual Demand:</label>
-		<input type="text" id="residual_demand" name="residual_demand"><br><br>
-		
-		<label for="rsa_contracted_demand">RSA Contracted Demand:</label>
-		<input type="text" id="rsa_contracted_demand" name="rsa_contracted_demand"><br><br>
-		
-		<label for="international_exports">International Exports:</label>
-		<input type="text" id="international_exports" name="international_exports"><br><br>
-		
-		<label for="international_imports">International Imports:</label>
-		<input type="text" id="international_imports" name="international_imports"><br><br>
-		
-		<label for="thermal_generation">Thermal Generation:</label>
-		<input type="text" id="thermal_generation" name="thermal_generation"><br><br>
-		
-		<label for="nuclear_generation">Nuclear Generation:</label>
-		<input type="text" id="nuclear_generation" name="nuclear_generation"><br><br>
-		
-		<label for="eskom_gas_generation">Eskom Gas Generation:</label>
-		<input type="text" id="eskom_gas_generation" name="eskom_gas_generation"><br><br>
-		
-		<label for="eskom_ocgt_generation">Eskom OCGT Generation:</label>
-		<input type="text" id="eskom_ocgt_generation" name="eskom_ocgt_generation"><br><br>
-		
-		<label for="hydro_water_generation">Hydro Water Generation:</label>
-		<input type="text" id="hydro_water_generation" name="hydro_water_generation"><br><br>
-		
-		<label for="pumped_water_generation">Pumped Water Generation:</label>
-		<input type="text" id="pumped_water_generation" name="pumped_water_generation"><br><br>
-		
-		<label for="ils_usage">ILS Usage:</label>
-		<input type="text" id="ils_usage" name="ils_usage"><br><br>
-		
-		<label for="manual_load_reduction">Manual Load_Reduction(MLR):</label>
-		<input type="text" id="manual_load_reduction" name="manual_load_reduction"><br><br>
-		
-		<label for="ios_excl_ils_and_mlr">IOS Excl ILS and MLR:</label>
-		<input type="text" id="ios_excl_ils_and_mlr" name
-        <div class="form-group">
-            <label for="hydro_water_generation">Hydro Water Generation:</label>
-            <input type="number" class="form-control" id="hydro_water_generation" name="hydro_water_generation" required>
-        </div>
+    <h1>Regression Prediction</h1>
+    <form method="POST" action="{{ url_for('predict') }}">    
+        <label for="ResidualDemand">Residual Forecast:</label>
+        <input type="text" id="ResidualDemand" name="ResidualDemand"><br><br>
         
-        <div class="form-group">
-            <label for="pumped_water_generation">Pumped Water Generation:</label>
-            <input type="number" class="form-control" id="pumped_water_generation" name="pumped_water_generation" required>
-        </div>
+        <label for="RSAContractedDemand">RSA Contracted Forecast:</label>
+        <input type="text" id="RSAContractedDemand" name="RSAContractedDemand"><br><br>
         
-        <div class="form-group">
-            <label for="ils_usage">ILS Usage:</label>
-            <input type="number" class="form-control" id="ils_usage" name="ils_usage" required>
-        </div>
+        <label for="ThermalGeneration">Thermal Generation:</label>
+        <input type="text" id="ThermalGeneration" name="ThermalGeneration"><br><br>
         
-        <div class="form-group">
-            <label for="manual_load_reduction">Manual Load_Reduction(MLR):</label>
-            <input type="number" class="form-control" id="manual_load_reduction" name="manual_load_reduction" required>
-        </div>
+        <label for="PumpedWaterGeneration">Pumped Water Generation:</label>
+        <input type="text" id="PumpedWaterGeneration" name="PumpedWaterGeneration"><br><br>
         
-        <div class="form-group">
-            <label for="ios_excl_ils_and_mlr">IOS Excl ILS and MLR:</label>
-            <input type="number" class="form-control" id="ios_excl_ils_and_mlr" name="ios_excl_ils_and_mlr" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="dispatchable_ipp_ocgt">Dispatchable IPP OCGT:</label>
-            <input type="number" class="form-control" id="dispatchable_ipp_ocgt" name="dispatchable_ipp_ocgt" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="eskom_gas_sco">Eskom Gas SCO:</label>
-            <input type="number" class="form-control" id="eskom_gas_sco" name="eskom_gas_sco" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="eskom_ocgt_sco">Eskom OCGT SCO:</label>
-            <input type="number" class="form-control" id="eskom_ocgt_sco" name="eskom_ocgt_sco" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="hydro_water_sco">Hydro Water SCO:</label>
-            <input type="number" class="form-control" id="hydro_water_sco" name="hydro_water_sco" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="pumped_water_sco_pumping">Pumped Water SCO Pumping:</label>
-            <input type="number" class="form-control" id="pumped_water_sco_pumping" name="pumped_water_sco_pumping" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="wind">Wind:</label>
-            <input type="number" class="form-control" id="wind" name="wind" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="pv">PV:</label>
-            <input type="number" class="form-control" id="pv" name="pv" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="csp">CSP:</label>
-            <input type="number" class="form-control" id="csp" name="csp" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="other_re">Other RE:</label>
-            <input type="number" class="form-control" id="other_re" name="other_re"
-            <input type="text" id="input_data" name="input_data"><br>
-            <input type="submit" value="Predict">
+        <label for="PumpedWaterSCOPumping">Pumped Water SCO Pumping:</label>
+        <input type="text" id="PumpedWaterSCOPumping" name="PumpedWaterSCOPumping"><br><br>
+        <button>Predict Demand</button>
         </form>
         {% if prediction %}
-            <p>Predicted output: {{ prediction }}</p>
+            <p>Predicted Demand: {{ prediction }}</p>
         {% endif %}
     </body>
     </html>
